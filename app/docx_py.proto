@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+service DocxPy {
+  rpc GenerateDocument (DocumentRequest) returns (DocumentResponse);
+}
+
+message DocumentRequest {
+  uint64 template_id = 1;
+  string client_uuid = 2;
+  google.protobuf.Struct context = 3;
+}
+
+message DocumentResponse {
+  bytes document = 1;
+}
